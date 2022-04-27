@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+<style>
+
+    .loader{
+        width:100px;
+        height:100px;
+        position:relative;
+    }
+    .loader::before{
+
+    }
+
+    .loader::after{
+        content: '';
+        position: absolute;
+        height: inherit;
+        width: inherit;
+        border-radius:50%;
+        mix-blend-mode: multiply;
+        animaion: rotate 1s infinite cubic-bezier(0.77,0,0.175,1);
+    }
+
+    .loader::before{
+        background-color:#FF00FF
+    }
+    .loader::after{
+        background-color: #00FFFF
+        animation-delay: .5s
+    }
+
+    @keyframes rotate{
+
+        0%,100%{
+            left:95px;
+        }
+        25%{
+            transform: scale(.3)
+        }
+        50%{
+            transform: scale(.0)
+        }
+        75%{
+            transform: scale(.1)
+        }
+    }
+
+</style>   -->
+
+<style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+html{
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+
+.loader{
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.loader::before,
+.loader::after{
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    mix-blend-mode: multiply; /*Mixes the colors so that you get the layer effect.*/
+    animation: rotate 1s infinite
+    cubic-bezier(0.77, 0, 0.175, 1);
+}
+/*Selecting the pseudo-elements individually to apply different colors and a delay on the ::after.*/
+.loader::before{
+    background-color: #ff00ff;
+}
+.loader::after{
+    background-color: #00ffff;
+    animation-delay: .5s;
+
+}
+@keyframes rotate {
+    0%,100%{
+        left: 95px; /*The 0% and 100% (start and end) stops will have the same styles so here we use them together to not repeat it later. We move the element to the left.*/
+    }
+    25%{
+        transform: scale(.3); /*On this stop we scale the element down to make it look smaller.*/
+    }
+    50%{
+        left: 0; /*On this stop the left position to 0 to bring it all the way back..*/
+    }
+    75%{
+        transform: scale(1); /*On this stop we make the element the normal size again.*/
+    }
+}</style>
+    <body>
+        <span class="loader"></span>
+    </body>
+</html>
